@@ -30,7 +30,7 @@ export default function Write() {
           "https://bloging-aplication-new-app.onrender.com/api/v1/posts",
           newPost
         );
-        window.location.replace("/post/" );
+        window.location.replace("/post" );
       } catch (error) {
         console.log(error);
       }
