@@ -23,14 +23,17 @@ export default function Write() {
       data.append("file", file);
       newPost.image = filename;
       try {
-        await axios.post("https://bloging-aplication-new-app.onrender.com/api/v1/upload", data);
+        await axios.post(
+          "https://bloging-aplication-new-app.onrender.com/api/v1/upload",
+          data
+        );
       } catch (error) {}
       try {
-         await axios.post(
+        await axios.post(
           "https://bloging-aplication-new-app.onrender.com/api/v1/posts",
           newPost
         );
-        window.location.replace("/post" );
+        window.location.replace("/");
       } catch (error) {
         console.log(error);
       }
