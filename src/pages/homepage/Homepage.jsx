@@ -3,15 +3,27 @@ import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./homepage.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Homepage() {
-  const location = useLocation();
-  console.log(location);
+  const [post, setPost] = useState([]);
+  const {search} = useLocation();
+
+  useEffect(() => {
+    const fatchPost = async () => {
+      const res = await axios.get("https://blogingnew.onrender.com/api/v1/posts"+search);
+      setPost(res.data);
+    };
+    fatchPost();
+  }, [search]);
+
+
   return (
     <>
       <Header />
       <div className="home">
-        <Posts />
+        <Posts post={post} />
         <Sidebar />
       </div>
     </>
