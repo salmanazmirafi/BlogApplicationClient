@@ -26,11 +26,11 @@ export default function Write() {
         await axios.post("https://bloging-aplication-new-app.onrender.com/api/v1/upload", data);
       } catch (error) {}
       try {
-        const res = await axios.post(
+         await axios.post(
           "https://bloging-aplication-new-app.onrender.com/api/v1/posts",
           newPost
         );
-        window.location.replace("/post/" + res.data._id);
+        window.location.replace("/post/" );
       } catch (error) {
         console.log(error);
       }
