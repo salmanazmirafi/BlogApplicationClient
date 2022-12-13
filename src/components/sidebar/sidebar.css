@@ -34,6 +34,7 @@
   margin-top: 15px;
   width: 250px;
   height: 250px;
+  object-fit: cover;
 }
 
 .sidebarItem > p {

@@ -5,25 +5,26 @@ import { Context } from "../../context/Context";
 import "./login.css";
 
 export default function Login() {
-const userRef = useRef()
-const passwordRef = useRef()
-const {dispatch,isFetching} = useContext(Context)
+  const userRef = useRef();
+  const passwordRef = useRef();
+  const { dispatch, isFetching } = useContext(Context);
 
-
-  const handaleSubmit= async(e)=>{
-    e.preventDefault()
-    dispatch({type:"LOGIN_START"})
+  const handaleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("https://blogingnew.onrender.com/api/v1/login",{
-        username: userRef.current.value,
-        password: passwordRef.current.value
-      })
-      dispatch({type:"LOGIN_SUCCESS", payload:res.data})
+      const res = await axios.post(
+        "https://bloging-aplication-new-app.onrender.com/api/v1/login",
+        {
+          username: userRef.current.value,
+          password: passwordRef.current.value,
+        }
+      );
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (error) {
-      dispatch({type:"LOGIN_FAILURE"})
+      dispatch({ type: "LOGIN_FAILURE" });
     }
-  }
-
+  };
 
   return (
     <div className="login">
@@ -43,12 +44,13 @@ const {dispatch,isFetching} = useContext(Context)
           placeholder="Enter your password..."
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit" disabled={isFetching}>Login</button>
+        <button className="loginButton" type="submit" disabled={isFetching}>
+          Login
+        </button>
       </form>
-      <Link to='/register'>
-      <button className="loginRegisterButton">Register</button>
+      <Link to="/register">
+        <button className="loginRegisterButton">Register</button>
       </Link>
-      
     </div>
   );
 }

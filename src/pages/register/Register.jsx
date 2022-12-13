@@ -14,7 +14,7 @@ export default function Register() {
     setError(false);
     try {
       const res = await axios.post(
-        "https://blogingnew.onrender.com/api/v1/signup",
+        "https://bloging-aplication-new-app.onrender.com/api/v1/signup",
         {
           username,
           email,

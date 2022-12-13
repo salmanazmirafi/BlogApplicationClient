@@ -12,7 +12,7 @@ export default function Homepage() {
 
   useEffect(() => {
     const fatchPost = async () => {
-      const res = await axios.get("https://blogingnew.onrender.com/api/v1/posts"+search);
+      const res = await axios.get("https://bloging-aplication-new-app.onrender.com/api/v1/posts"+search);
       setPost(res.data);
     };
     fatchPost();

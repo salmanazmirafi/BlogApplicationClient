@@ -17,21 +17,23 @@ export default function Write() {
       desc,
     };
     if (file) {
-      const data = FormData();
+      const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
       newPost.image = filename;
       try {
-        await axios.post("https://blogingnew.onrender.com/api/v1/upload", data);
+        await axios.post("https://bloging-aplication-new-app.onrender.com/api/v1/upload", data);
       } catch (error) {}
       try {
         const res = await axios.post(
-          "https://blogingnew.onrender.com/api/v1/posts",
+          "https://bloging-aplication-new-app.onrender.com/api/v1/posts",
           newPost
         );
         window.location.replace("/post/" + res.data._id);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

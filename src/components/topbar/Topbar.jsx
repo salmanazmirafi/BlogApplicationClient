@@ -5,6 +5,7 @@ import "./topbar.css";
 
 export default function Topbar() {
   const { user, dispatch } = useContext(Context);
+  const PF = "https://bloging-aplication-new-app.onrender.com/images/";
   const handaleC = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -40,11 +41,7 @@ export default function Topbar() {
       <div className="topRight">
         {user ? (
           <Link className="link" to="/settings">
-            <img
-              className="topImg"
-              src={user.profilePuncture}
-              alt=""
-            />
+            <img className="topImg" src={PF + user.profilePuncture} alt="" />
           </Link>
         ) : (
           <ul className="topList">

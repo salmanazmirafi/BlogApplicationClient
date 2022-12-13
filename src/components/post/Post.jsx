@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 export default function Post({ post }) {
+  const PF = "https://bloging-aplication-new-app.onrender.com/images/";
   return (
     <div className="post">
-      <img className="postImg" src={post.image} alt="" />
+      <img className="postImg" src={PF + post.image} alt="" />
       <div className="postInfo">
         <div className="postCats">
-          
           {post.category.map((i) => (
             <span className="postCat">
               <Link className="link" to={`/posts/?cate=${i}`}>
